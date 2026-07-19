@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Please cite the software and the associated paper when using this repository."
+title: "Hyperspherical Compressed VAE for Anomaly Detection"
+type: software
+authors:
+  - family-names: Ascarate
+    given-names: Alejandro
+  - family-names: Lebrat
+    given-names: Leo
+  - family-names: Santa Cruz
+    given-names: Rodrigo
+  - family-names: Fookes
+    given-names: Clinton
+  - family-names: Salvado
+    given-names: Olivier
+version: 0.1.0
+date-released: 2026-07-19
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "VAE with Hyperspherical Coordinates: Improving Anomaly Detection from Hypervolume-Compressed Latent Space"
+  authors:
+    - family-names: Ascarate
+      given-names: Alejandro
+    - family-names: Lebrat
+      given-names: Leo
+    - family-names: Santa Cruz
+      given-names: Rodrigo
+    - family-names: Fookes
+      given-names: Clinton
+    - family-names: Salvado
+      given-names: Olivier
+  year: 2026

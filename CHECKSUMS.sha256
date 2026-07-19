@@ -1,0 +1,2 @@
+54377a77925e25ec8b0b8f00c999514974e36f657cd97dfaf751c9a0f10e09ea  checkpoints/cifar10_full_compression_z128_ec126.pt
+cd56067d267545aea94b1f10ab5f541491c865597b88fb8fdc08fc48e74bfb80  results/reference/cifar10_vs_cifar100/scores.npz

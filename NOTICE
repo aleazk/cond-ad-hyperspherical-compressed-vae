@@ -1,0 +1,10 @@
+Hyperspherical Compressed VAE
+Copyright 2026 Alejandro Ascarate and contributors.
+
+The residual VAE architecture and portions of the original research implementation
+were adapted from the Apache-2.0-licensed Soft-IntroVAE implementation by Tal Daniel
+and Aviv Tamar: https://github.com/taldatech/soft-intro-vae-pytorch
+
+The hyperspherical compression objective, class-conditioned coordinate rotation,
+anomaly-detection pipeline, cleaned package structure, tests, and reproduction
+materials are part of this repository.

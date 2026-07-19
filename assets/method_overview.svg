@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="610" viewBox="0 0 1400 610">
+  <rect width="1400" height="610" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L10,4 z" fill="#202124"/>
+    </marker>
+    <style>
+      .box { fill:#ffffff; stroke:#202124; stroke-width:2.5; rx:18; ry:18; }
+      .soft { fill:#eef4fb; stroke:#202124; stroke-width:2.5; rx:18; ry:18; }
+      .accent { fill:#f4f8ef; stroke:#202124; stroke-width:2.5; rx:18; ry:18; }
+      .title { font:700 30px Arial,sans-serif; fill:#111; }
+      .head { font:700 23px Arial,sans-serif; fill:#111; }
+      .text { font:18px Arial,sans-serif; fill:#222; }
+      .small { font:16px Arial,sans-serif; fill:#333; }
+      .line { stroke:#202124; stroke-width:3; fill:none; marker-end:url(#arrow); }
+      .dash { stroke:#444; stroke-width:2.5; fill:none; stroke-dasharray:9 7; marker-end:url(#arrow); }
+    </style>
+  </defs>
+  <text x="700" y="45" text-anchor="middle" class="title">Hyperspherical latent-volume compression for anomaly detection</text>
+
+  <rect x="35" y="150" width="150" height="120" class="box"/>
+  <text x="110" y="194" text-anchor="middle" class="head">Input</text>
+  <text x="110" y="230" text-anchor="middle" class="text">image x</text>
+
+  <rect x="245" y="110" width="230" height="200" class="soft"/>
+  <text x="360" y="154" text-anchor="middle" class="head">Encoder</text>
+  <text x="360" y="190" text-anchor="middle" class="text">Cartesian parameters</text>
+  <text x="360" y="225" text-anchor="middle" class="text">μ(x), log σ²(x)</text>
+  <text x="360" y="265" text-anchor="middle" class="small">residual convolutional VAE</text>
+
+  <rect x="535" y="85" width="330" height="250" class="accent"/>
+  <text x="700" y="130" text-anchor="middle" class="head">Hyperspherical compression</text>
+  <text x="700" y="171" text-anchor="middle" class="text">roll by the CIFAR-10 class axis</text>
+  <text x="700" y="207" text-anchor="middle" class="text">Cartesian → angular cosines</text>
+  <text x="700" y="243" text-anchor="middle" class="text">match angular means and spreads</text>
+  <text x="700" y="286" text-anchor="middle" class="small">full model compresses all usable angles</text>
+  <text x="700" y="314" text-anchor="middle" class="small">vMF-like ablation compresses the first angle</text>
+
+  <rect x="925" y="110" width="215" height="200" class="soft"/>
+  <text x="1032" y="154" text-anchor="middle" class="head">Latent sample</text>
+  <text x="1032" y="194" text-anchor="middle" class="text">z = μ + σ ε</text>
+  <text x="1032" y="230" text-anchor="middle" class="text">project to radius √d</text>
+  <text x="1032" y="270" text-anchor="middle" class="small">compact class islands</text>
+
+  <rect x="1200" y="150" width="165" height="120" class="box"/>
+  <text x="1282" y="194" text-anchor="middle" class="head">Decoder</text>
+  <text x="1282" y="230" text-anchor="middle" class="text">reconstruct x̂</text>
+
+  <path d="M185 210 L245 210" class="line"/>
+  <path d="M475 210 L535 210" class="line"/>
+  <path d="M865 210 L925 210" class="line"/>
+  <path d="M1140 210 L1200 210" class="line"/>
+
+  <rect x="280" y="410" width="260" height="125" class="box"/>
+  <text x="410" y="452" text-anchor="middle" class="head">Reference bank</text>
+  <text x="410" y="487" text-anchor="middle" class="text">CIFAR-10 training means</text>
+  <text x="410" y="516" text-anchor="middle" class="small">μ(x_train)</text>
+
+  <rect x="620" y="410" width="250" height="125" class="soft"/>
+  <text x="745" y="452" text-anchor="middle" class="head">3-nearest neighbours</text>
+  <text x="745" y="487" text-anchor="middle" class="text">mean Euclidean distance</text>
+  <text x="745" y="516" text-anchor="middle" class="small">latent anomaly score</text>
+
+  <rect x="950" y="410" width="250" height="125" class="accent"/>
+  <text x="1075" y="452" text-anchor="middle" class="head">OOD decision</text>
+  <text x="1075" y="487" text-anchor="middle" class="text">CIFAR-10 vs CIFAR-100</text>
+  <text x="1075" y="516" text-anchor="middle" class="small">AUROC and FPR95</text>
+
+  <path d="M360 310 L360 410" class="dash"/>
+  <path d="M540 472 L620 472" class="line"/>
+  <path d="M870 472 L950 472" class="line"/>
+  <path d="M1032 310 C1032 350 800 360 800 410" class="dash"/>
+</svg>

@@ -1,0 +1,37 @@
+experiment: cifar10_vs_cifar100_full_compression
+seed: 100
+device: auto
+data_dir: data
+output_dir: runs/cifar10_vs_cifar100_full
+download: true
+num_workers: 2
+checkpoint: checkpoints/cifar10_full_compression_z128_ec126.pt
+pretrained: null
+
+model:
+  latent_dim: 128
+  channels: [16, 32, 64]
+  normalize_samples: true
+
+compression:
+  mode: full
+  end_compress: 126
+  class_axis_stride: 10
+
+training:
+  epochs: 300
+  batch_size: 200
+  lr_encoder: 0.0002
+  lr_decoder: 0.0002
+  beta_target: 2500.0
+  initial_beta: 1.0
+  milestones: [280, 450]
+  save_every: 50
+  resume: false
+
+evaluation:
+  batch_size: 512
+  knn_k: 3
+  # The old script evaluated the training bank with random horizontal flips.
+  # False is deterministic and recommended; True is available for legacy matching.
+  legacy_train_augmentation: false
