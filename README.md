@@ -127,12 +127,22 @@ backpropagation, and anomaly metrics. CI also verifies the exact archived score 
 
 ## Citation
 
+If you use this repository, please cite:
+
+**Alejandro Ascarate, Leo Lebrat, Rodrigo Santa Cruz, Clinton Fookes, and Olivier Salvado.**  
+*VAE with Hyperspherical Coordinates: Improving Anomaly Detection from Hypervolume-Compressed Latent Space.*  
+arXiv:2601.18823, 2026.  
+[Paper on arXiv](https://arxiv.org/abs/2601.18823)
+
 ```bibtex
-@article{ascarate2026compressedvae,
-  title  = {VAE with Hyperspherical Coordinates: Improving Anomaly Detection from Hypervolume-Compressed Latent Space},
-  author = {Ascarate, Alejandro and Lebrat, Leo and Santa Cruz, Rodrigo and Fookes, Clinton and Salvado, Olivier},
-  year   = {2026},
-  note   = {Manuscript}
+@misc{ascarate2026hypersphericalvae,
+  title         = {VAE with Hyperspherical Coordinates: Improving Anomaly Detection from Hypervolume-Compressed Latent Space},
+  author        = {Ascarate, Alejandro and Lebrat, Leo and Santa Cruz, Rodrigo and Fookes, Clinton and Salvado, Olivier},
+  year          = {2026},
+  eprint        = {2601.18823},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2601.18823}
 }
 ```
 
