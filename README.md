@@ -135,7 +135,7 @@ arXiv:2601.18823, 2026.
 [Paper on arXiv](https://arxiv.org/abs/2601.18823)
 
 ```bibtex
-@misc{ascarate2026hypersphericalvae,
+@article{ascarate2026hypersphericalvae,
   title         = {VAE with Hyperspherical Coordinates: Improving Anomaly Detection from Hypervolume-Compressed Latent Space},
   author        = {Ascarate, Alejandro and Lebrat, Leo and Santa Cruz, Rodrigo and Fookes, Clinton and Salvado, Olivier},
   year          = {2026},
