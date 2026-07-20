@@ -114,8 +114,7 @@ work also studies fully unconditional anomaly detection on Mars Rover Mastcam an
 far-OOD detection from CIFAR-10, and Imagenette versus semantically close ImageNet classes.
 Those datasets are not bundled in this initial public release.
 
-The main limitations are that the current compression loss relies on class labels, class-specific
-batch statistics, and a fixed axis assignment. Hyperspherical conversion also adds computational
+A limitation is that the hyperspherical conversion adds computational
 cost that grows with latent dimension.
 
 ## Testing
