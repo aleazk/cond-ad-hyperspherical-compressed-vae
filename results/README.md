@@ -4,5 +4,4 @@
 the supplied run. These data allow the published rounded metrics to be verified without
 retraining or downloading the datasets.
 
-The large `Test_X.npz` image tensor from the original archive is intentionally omitted.
 CIFAR-10 and CIFAR-100 are downloaded directly by the reproduction command.
