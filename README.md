@@ -40,6 +40,8 @@ The exact archived score vector gives AUROC `0.8954305` and FPR95 `0.2323`.
   <img src="assets/reference_roc_and_embedding.png" width="720" alt="CIFAR-10 versus CIFAR-100 ROC and compressed latent projection">
 </p>
 
+(compact latent islands corresponding to the first three cifar10 classes)
+
 ## Install
 
 ```bash
