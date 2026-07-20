@@ -15,8 +15,8 @@ anomaly and out-of-distribution detection.
 
 ## Core idea
 
-High-dimensional Gaussian latent vectors concentrate near a thin hyperspherical shell and
-occupy enormous equatorial regions. A standard Cartesian KLD cannot directly control the
+High-dimensional Gaussian latent vectors concentrate near a thin hyperspherical shell but also only
+occupy enormous equatorial regions. A standard Cartesian KLD cannot directly control this
 angular volume structure. This implementation converts encoder means and scales to
 hyperspherical coordinates and regularizes their angular batch statistics.
 
