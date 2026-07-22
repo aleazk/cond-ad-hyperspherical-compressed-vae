@@ -24,7 +24,7 @@ For conditional OOD detection, each in-distribution class is associated with a l
 All angular coordinates can then be compressed toward compact class-specific regions. A
 3-nearest-neighbour score on the latent means is used for anomaly detection.
 
-### Reference result: Near-OOD anomaly detection: CIFAR-10 vs CIFAR-100
+### Reference result: Near-OOD anomaly detection in CIFAR-10 vs CIFAR-100
 
 CIFAR-10 is the in-distribution training and test dataset. CIFAR-100 is a semantically close,
 near-OOD test dataset.
@@ -43,10 +43,10 @@ Full angular compression achieves an AUROC close to the best-performing comparis
 | DICE | 0.586 | 0.871 |
 | Mahalanobis | 0.877 | 0.789 |
 | KNN | 0.583 | 0.879 |
-| SNN | 0.501 | **0.898** |
+| SNN | *0.501* | **0.898** |
 | KNN* | 0.900 | 0.615 |
 | Compressed VAE, first-angle/vMF-like | 0.611 | 0.774 |
-| **Compressed VAE, full angular compression** | **0.232** | 0.895 |
+| **Compressed VAE, full angular compression** | **0.232** | *0.895* |
 
 Results are for CIFAR-10 as the in-distribution dataset and CIFAR-100 as near-OOD. `KNN*` denotes the repository’s implementation using the same backbone as the compressed VAE.
 
