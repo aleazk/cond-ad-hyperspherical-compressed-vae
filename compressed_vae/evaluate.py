@@ -152,14 +152,14 @@ def run(
         protocol=np.array(protocol),
     )
     plot_roc_and_scores(labels, scores, roc, metrics, output / "roc_and_scores.png")
-    plot_latent_projection(
-        id_mu,
-        id_labels,
-        ood_mu,
-        ood_labels,
-        output / "latent_projection.png",
-        protocol=settings["plot_protocol"],
-    )
+    # plot_latent_projection(
+    #     id_mu,
+    #     id_labels,
+    #     ood_mu,
+    #     ood_labels,
+    #     output / "latent_projection.png",
+    #     protocol=settings["plot_protocol"],
+    # )
 
     print(f"Protocol: {protocol}")
     print(f"AUROC: {metrics.auroc:.6f}")
