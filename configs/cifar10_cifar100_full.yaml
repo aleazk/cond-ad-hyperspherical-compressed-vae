@@ -2,7 +2,7 @@ experiment: cifar10_vs_cifar100_full_compression
 seed: 100
 device: auto
 data_dir: data
-output_dir: runs/cifar10_vs_cifar100_full
+output_dir: runs/cifar10_vs_cifar100_historical
 download: true
 num_workers: 2
 checkpoint: checkpoints/cifar10_full_compression_z128_ec126.pt
@@ -30,8 +30,9 @@ training:
   resume: false
 
 evaluation:
+  # "historical" reproduces the original code path, including BatchNorm in
+  # training mode and historical batch sizes. "standard" uses model.eval().
+  protocol: historical
   batch_size: 512
+  train_batch_size: 200
   knn_k: 3
-  # The old script evaluated the training bank with random horizontal flips.
-  # False is deterministic and recommended; True is available for legacy matching.
-  legacy_train_augmentation: false

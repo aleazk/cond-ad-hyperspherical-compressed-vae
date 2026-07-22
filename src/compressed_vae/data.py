@@ -20,19 +20,32 @@ class CIFARLoaders:
 def cifar10_cifar100_loaders(
     data_dir: str | Path,
     *,
-    batch_size: int = 200,
-    eval_batch_size: int = 512,
-    num_workers: int = 2,
+    train_batch_size: int = 200,
+    id_batch_size: int = 200,
+    ood_batch_size: int = 4000,
+    num_workers: int = 0,
     seed: int = 100,
     download: bool = True,
     train_augmentation: bool = True,
+    shuffle_train: bool = True,
+    shuffle_id: bool = True,
+    shuffle_ood: bool = True,
+    historical_rng: bool = True,
 ) -> CIFARLoaders:
+    """Build CIFAR-10 train/test and CIFAR-100 test loaders.
+
+    ``historical_rng=True`` intentionally avoids a private DataLoader generator.
+    This mirrors the original script, in which the sampler and transforms consumed
+    the process-wide PyTorch RNG seeded before loader construction.
+    """
+
     data_dir = Path(data_dir)
     train_transform = transforms.Compose(
         ([transforms.RandomHorizontalFlip(p=0.5)] if train_augmentation else [])
         + [transforms.ToTensor()]
     )
     test_transform = transforms.ToTensor()
+
     train_set = datasets.CIFAR10(
         data_dir / "cifar10", train=True, download=download, transform=train_transform
     )
@@ -42,12 +55,18 @@ def cifar10_cifar100_loaders(
     ood_test = datasets.CIFAR100(
         data_dir / "cifar100", train=False, download=download, transform=test_transform
     )
-    generator = torch.Generator().manual_seed(seed)
+
     common = dict(num_workers=num_workers, pin_memory=torch.cuda.is_available())
+    generator = None if historical_rng else torch.Generator().manual_seed(seed)
+
+    def make_loader(dataset, batch_size: int, shuffle: bool) -> DataLoader:
+        kwargs = dict(dataset=dataset, batch_size=batch_size, shuffle=shuffle, **common)
+        if generator is not None:
+            kwargs["generator"] = generator
+        return DataLoader(**kwargs)
+
     return CIFARLoaders(
-        train=DataLoader(
-            train_set, batch_size=batch_size, shuffle=True, generator=generator, **common
-        ),
-        id_test=DataLoader(id_test, batch_size=eval_batch_size, shuffle=False, **common),
-        ood_test=DataLoader(ood_test, batch_size=eval_batch_size, shuffle=False, **common),
+        train=make_loader(train_set, train_batch_size, shuffle_train),
+        id_test=make_loader(id_test, id_batch_size, shuffle_id),
+        ood_test=make_loader(ood_test, ood_batch_size, shuffle_ood),
     )
