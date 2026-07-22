@@ -65,5 +65,5 @@ def plot_latent_projection(id_embeddings, id_labels, ood_embeddings, ood_labels,
     fig.tight_layout()
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output, dpi=180, bbox_inches="tight")
+    #fig.savefig(output, dpi=180, bbox_inches="tight")
     plt.close(fig)
